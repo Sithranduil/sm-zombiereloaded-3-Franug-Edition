@@ -170,7 +170,7 @@ SEffectsEmitAmbientSound(const String:sound[], Float:ambientvolume = 1.0, client
 	// Precache sound before playing.
 	if (g_Game == Game_CSGO)
 	{
-		PrecacheSoundAny(sound);
+		PrecacheSound(sound);
 	}
 	else
 	{
@@ -182,7 +182,7 @@ SEffectsEmitAmbientSound(const String:sound[], Float:ambientvolume = 1.0, client
 		// Emit ambient sound.
 		if (g_Game == Game_CSGO)
 		{
-			EmitSoundToClientAny(client, sound, SOUND_FROM_PLAYER, SOUND_AMBIENT_CHANNEL, _, _, ambientvolume);
+			EmitSoundToClient(client, sound, SOUND_FROM_PLAYER, SOUND_AMBIENT_CHANNEL, _, _, ambientvolume);
 		}
 		else
 		{
@@ -206,7 +206,7 @@ SEffectsEmitAmbientSound(const String:sound[], Float:ambientvolume = 1.0, client
 			// Emit ambient sound.
 			if (g_Game == Game_CSGO)
 			{
-				EmitSoundToClientAny(x, sound, SOUND_FROM_PLAYER, SNDCHAN_AUTO, _, _, ambientvolume);
+				EmitSoundToClient(x, sound, SOUND_FROM_PLAYER, SNDCHAN_AUTO, _, _, ambientvolume);
 			}
 			else
 			{
@@ -255,9 +255,9 @@ SEffectsEmitSoundFromClient(client, const String:sound[], level = SNDLEVEL_NORMA
 	if (g_Game == Game_CSGO)
 	{
 		// Precache sound before playing.// Emit sound from client.
-		PrecacheSoundAny(sound);
+		PrecacheSound(sound);
 		// Emit sound from client.
-		EmitSoundToAllAny(sound, client, _, level);
+		EmitSoundToAll(sound, client, _, level);
 	}
 	else
 	{

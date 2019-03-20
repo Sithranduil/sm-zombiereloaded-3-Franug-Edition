@@ -673,7 +673,7 @@ public Action:InfectCountdown(Handle:timer)
 	{
 		ReplaceString(sounddir, 128, "sound/", "");
 		
-		if(g_Game == Game_CSGO) EmitSoundToAllAny(sounddir);
+		if(g_Game == Game_CSGO) EmitSoundToAll(sounddir);
 		else EmitSoundToAll(sounddir);
 	}
 	
@@ -702,7 +702,7 @@ CountDown()
 		ReplaceString(sounddir, 128, "sound/", "");
 		
 		if(g_Game != Game_CSGO) PrecacheSound(sounddir);
-		else PrecacheSoundAny(sounddir);
+		else PrecacheSound(sounddir);
 		
 		count++;
 		Format(sounddir, 128, "sound/zr/countdown/%i.mp3", count);
