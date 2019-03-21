@@ -44,7 +44,7 @@
 /**
  * @endsection
  */
-
+ 
 /**
  * @section Global variables to store infect timer handles.
  */
@@ -667,7 +667,7 @@ public Action:InfectCountdown(Handle:timer)
 	
 	new counter_int = RoundToNearest(length - counter);
 	char sounddir[128];
-	Format(sounddir, 128, "sound/zr/countdown/%i.mp3", counter_int);
+	Format(sounddir, 128, "sound/zr/countdown_female/%i.mp3", counter_int);
 	
 	if(FileExists(sounddir))
 	{
@@ -694,7 +694,7 @@ CountDown()
 {
 	int count = 1;
 	char sounddir[128];
-	Format(sounddir, 128, "sound/zr/countdown/%i.mp3", count);
+	Format(sounddir, 128, "sound/zr/countdown_female/%i.mp3", count);
 	
 	while(FileExists(sounddir))
 	{
@@ -705,7 +705,7 @@ CountDown()
 		else PrecacheSound(sounddir);
 		
 		count++;
-		Format(sounddir, 128, "sound/zr/countdown/%i.mp3", count);
+		Format(sounddir, 128, "sound/zr/countdown_female/%i.mp3", count);
 	}
 }
 
@@ -791,7 +791,7 @@ InfectHumanToZombie(client, attacker = -1, bool:motherinfect = false, bool:respa
 				SetEventString(event, "weapon", "zombie_claws_of_death");
 			}
 			
-			FireEvent(event, false);
+						FireEvent(event, false);
 		}
 		
 		// Apply score and health gain.
