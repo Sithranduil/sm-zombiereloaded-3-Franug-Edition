@@ -45,6 +45,7 @@ EventHook(bool:unhook = false)
 	if (unhook)
 	{
 		// Unhook all events.
+		UnhookEvent("round_announce_match_start", EventRoundAnnounceMatchStart);
 		UnhookEvent("round_start", EventRoundStart);
 		UnhookEvent("round_freeze_end", EventRoundFreezeEnd);
 		UnhookEvent("round_end", EventRoundEnd);
@@ -60,6 +61,7 @@ EventHook(bool:unhook = false)
 	}
 	
 	// Hook all events used by plugin.
+	HookEvent("round_announce_match_start", EventRoundAnnounceMatchStart);
 	HookEvent("round_start", EventRoundStart);
 	HookEvent("round_freeze_end", EventRoundFreezeEnd);
 	HookEvent("round_end", EventRoundEnd);
@@ -69,6 +71,27 @@ EventHook(bool:unhook = false)
 	HookEvent("player_death", EventPlayerDeath);
 	HookEvent("player_jump", EventPlayerJump);
 	HookEvent("weapon_fire", EventWeaponFire);
+}
+
+/**
+ * Event callback (round_announce_match_start)
+ * This is called once the warmup period ends, AFTER freezetime
+ * 
+ * @param event	 The event handle.
+ * @param name	  Name of the event.
+ * @dontBroadcast   If true, event is broadcasted to all clients, false if not.
+ */
+public Action:EventRoundAnnounceMatchStart(Handle:event, const String:name[], bool:dontBroadcast)
+{	
+	// Forward event to modules.
+	WeaponsOnRoundEnd();
+	RoundEndOnRoundEnd(CS_TEAM_SPECTATOR);
+	InfectOnRoundEnd();
+	SEffectsOnRoundEnd();
+	RespawnOnRoundEnd();
+	ZSpawnOnRoundEnd();
+	VolOnRoundEnd();
+	ImmunityOnRoundEnd();
 }
 
 /**
