@@ -98,6 +98,7 @@ enum CvarsList
 	Handle:CVAR_ROUNDEND_OVERLAY_ZOMBIE,
 	Handle:CVAR_ROUNDEND_OVERLAY_HUMAN,
 	Handle:CVAR_ROUNDEND_BALANCE_TEAMS,
+	Handle:CVAR_INFECT_EVENT_WEAPON,
 	Handle:CVAR_INFECT_SPAWNTIME_MIN,
 	Handle:CVAR_INFECT_SPAWNTIME_MAX,
 	Handle:CVAR_INFECT_CONSECUTIVE_BLOCK,
@@ -345,6 +346,7 @@ CvarsCreate()
 	g_hCvarsList[CVAR_INFECT_SHAKE_AMP]				 =	CreateConVar("zr_infect_shake_amp",			"15.0",							 "Amplitude of shaking effect. [Dependency: zr_infect_shake]");
 	g_hCvarsList[CVAR_INFECT_SHAKE_FREQUENCY]		   =	CreateConVar("zr_infect_shake_frequency",	  "1.0",							  "Frequency of shaking effect. [Dependency: zr_infect_shake]");
 	g_hCvarsList[CVAR_INFECT_SHAKE_DURATION]			=	CreateConVar("zr_infect_shake_duration",	   "5.0",							  "Duration of shaking effect. [Dependency: zr_infect_shake]"); 
+	g_hCvarsList[CVAR_INFECT_EVENT_WEAPON]              =    CreateConVar("zr_infect_event_weapon",         "zombie_claws_of_death",            "Weapon icon used when the death event is sent for a player that gets infected.");
 	
 	
 	// ===========================
